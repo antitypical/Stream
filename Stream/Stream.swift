@@ -65,6 +65,11 @@ public enum Stream<T>: NilLiteralConvertible {
 		return uncons()?.1.value ?? nil
 	}
 
+	/// Is this the empty stream?
+	public var isEmpty: Bool {
+		return uncons() == nil
+	}
+
 	// MARK: NilLiteralConvertible
 
 	/// Constructs a `Nil` `Stream`.
