@@ -45,7 +45,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	/// Unpacks the receiver into an optional tuple of its first element and the memoized remainder.
 	///
 	/// Returns `nil` if the receiver is the empty stream.
-	public func uncons() -> (T, Memo<Stream>)? {
+	public var uncons: (T, Memo<Stream>)? {
 		switch self {
 		case let Cons(x, rest):
 			return (x.value, rest)
@@ -57,17 +57,17 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 	/// The first element of the receiver, or `nil` if the receiver is the empty stream.
 	public var first: T? {
-		return uncons()?.0
+		return uncons?.0
 	}
 
 	/// The remainder of the receiver after its first element. If the receiver is the empty stream, this will return the empty stream.
 	public var rest: Stream {
-		return uncons()?.1.value ?? nil
+		return uncons?.1.value ?? nil
 	}
 
 	/// Is this the empty stream?
 	public var isEmpty: Bool {
-		return uncons() == nil
+		return uncons == nil
 	}
 
 
@@ -79,7 +79,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	public func take(n: Int) -> Stream {
 		if n <= 0 { return nil }
 
-		return uncons().map { .cons($0, $1.value.take(n - 1)) } ?? nil
+		return uncons.map { .cons($0, $1.value.take(n - 1)) } ?? nil
 	}
 
 	/// Returns a `Stream` without the first `n` elements of `stream`.
@@ -96,7 +96,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 	/// Returns a `Stream` produced by mapping the elements of the receiver with `f`.
 	public func map<U>(f: T -> U) -> Stream<U> {
-		return uncons().map { .cons(f($0), $1.value.map(f)) } ?? nil
+		return uncons.map { .cons(f($0), $1.value.map(f)) } ?? nil
 	}
 
 
@@ -109,7 +109,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	///
 	/// `combine` should return `.Left(x)` to terminate the fold with `x`, or `.Right(x)` to continue the fold.
 	public func foldLeft<Result>(seed: Result, _ combine: (Result, T) -> Either<Result, Result>) -> Result {
-		return uncons().map { first, rest in
+		return uncons.map { first, rest in
 			combine(seed, first).either(
 				ifLeft: id,
 				ifRight: { rest.value.foldLeft($0, combine) })
@@ -118,14 +118,14 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 	/// Folds the receiver ending with a given `seed` using the right-associative function `combine`.
 	public func foldRight<Result>(seed: Result, _ combine: (T, Result) -> Result) -> Result {
-		return uncons().map { combine($0, $1.value.foldRight(seed, combine)) } ?? seed
+		return uncons.map { combine($0, $1.value.foldRight(seed, combine)) } ?? seed
 	}
 
 	/// Folds the receiver ending with a given `seed` using the right-associative function `combine`.
 	///
 	/// `combine` receives the accumulator as a lazily memoized value. Thus, `combine` may terminate the fold simply by not evaluating the memoized accumulator.
 	public func foldRight<Result>(seed: Result, _ combine: (T, Memo<Result>) -> Result) -> Result {
-		return uncons().map { combine($0, $1.map { $0.foldRight(seed, combine) }) } ?? seed
+		return uncons.map { combine($0, $1.map { $0.foldRight(seed, combine) }) } ?? seed
 	}
 
 
@@ -210,7 +210,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 	/// A `Stream` of a `T` and the lazily memoized rest of the `Stream`.
 	///
-	/// Avoid using this directly; instead, use `Stream.cons()` or `Stream.pure()` to construct streams, and `stream.first`, `stream.rest`, and `stream.uncons()` to deconstruct them: they don’t require you to `Box` or unbox, `Stream.cons()` comes in `@autoclosure` and `Memo` varieties, and `Stream.pure()`, `Stream.cons()`, and `stream.uncons()` are all usable as first-class functions.
+	/// Avoid using this directly; instead, use `Stream.cons()` or `Stream.pure()` to construct streams, and `stream.first`, `stream.rest`, and `stream.uncons` to deconstruct them: they don’t require you to `Box` or unbox, `Stream.cons()` comes in `@autoclosure` and `Memo` varieties, and `Stream.pure()`, `Stream.cons()`, and `stream.uncons` are all usable as first-class functions.
 	case Cons(Box<T>, Memo<Stream>)
 
 	/// The empty `Stream`.
@@ -245,7 +245,7 @@ infix operator ++ {
 
 /// Produces the concatenation of `left` and `right`.
 public func ++ <T> (left: Stream<T>, right: Stream<T>) -> Stream<T> {
-	return left.uncons().map { first, rest in
+	return left.uncons.map { first, rest in
 		.cons(first, Memo { rest.value ++ right })
 	} ?? right
 }
