@@ -10,6 +10,11 @@ public enum Stream<T>: NilLiteralConvertible {
 		return Cons(Box(first), rest)
 	}
 
+	/// Constructs a unary `Stream` of `x`.
+	public static func pure(x: T) -> Stream {
+		return Cons(Box(x), Memo { nil })
+	}
+
 
 	// MARK: NilLiteralConvertible
 
