@@ -10,6 +10,9 @@
 		D49E34941AFD64B7006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D49E349F1AFD64B7006C0AB6 /* Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E348E1AFD64B7006C0AB6 /* Stream.framework */; };
 		D49E34A61AFD64B7006C0AB6 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */; };
+		D49E34BF1AFD6623006C0AB6 /* Stream-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */; };
+		D49E34CD1AFD667F006C0AB6 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */; };
+		D49E34CE1AFD6685006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -18,6 +21,13 @@
 			containerPortal = D49E34851AFD64B7006C0AB6 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = D49E348D1AFD64B7006C0AB6;
+			remoteInfo = Stream;
+		};
+		D49E34C01AFD6623006C0AB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D49E34851AFD64B7006C0AB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D49E34B31AFD6623006C0AB6;
 			remoteInfo = Stream;
 		};
 /* End PBXContainerItemProxy section */
@@ -29,6 +39,8 @@
 		D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stream-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34A41AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
+		D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Stream-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +56,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D49E349F1AFD64B7006C0AB6 /* Stream.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D49E34B01AFD6623006C0AB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D49E34BB1AFD6623006C0AB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49E34BF1AFD6623006C0AB6 /* Stream-iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +92,8 @@
 			children = (
 				D49E348E1AFD64B7006C0AB6 /* Stream.framework */,
 				D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */,
+				D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */,
+				D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -114,6 +143,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D49E34B11AFD6623006C0AB6 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49E34CE1AFD6685006C0AB6 /* Stream.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -153,6 +190,42 @@
 			productReference = D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D49E34B31AFD6623006C0AB6 /* Stream-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D49E34C71AFD6623006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-iOS" */;
+			buildPhases = (
+				D49E34AF1AFD6623006C0AB6 /* Sources */,
+				D49E34B01AFD6623006C0AB6 /* Frameworks */,
+				D49E34B11AFD6623006C0AB6 /* Headers */,
+				D49E34B21AFD6623006C0AB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Stream-iOS";
+			productName = Stream;
+			productReference = D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		D49E34BD1AFD6623006C0AB6 /* Stream-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D49E34CA1AFD6623006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-iOSTests" */;
+			buildPhases = (
+				D49E34BA1AFD6623006C0AB6 /* Sources */,
+				D49E34BB1AFD6623006C0AB6 /* Frameworks */,
+				D49E34BC1AFD6623006C0AB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D49E34C11AFD6623006C0AB6 /* PBXTargetDependency */,
+			);
+			name = "Stream-iOSTests";
+			productName = StreamTests;
+			productReference = D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -166,6 +239,12 @@
 						CreatedOnToolsVersion = 6.4;
 					};
 					D49E349D1AFD64B7006C0AB6 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D49E34B31AFD6623006C0AB6 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					D49E34BD1AFD6623006C0AB6 = {
 						CreatedOnToolsVersion = 6.4;
 					};
 				};
@@ -184,6 +263,8 @@
 			targets = (
 				D49E348D1AFD64B7006C0AB6 /* Stream-Mac */,
 				D49E349D1AFD64B7006C0AB6 /* Stream-MacTests */,
+				D49E34B31AFD6623006C0AB6 /* Stream-iOS */,
+				D49E34BD1AFD6623006C0AB6 /* Stream-iOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -197,6 +278,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D49E349C1AFD64B7006C0AB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D49E34B21AFD6623006C0AB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D49E34BC1AFD6623006C0AB6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -221,6 +316,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D49E34AF1AFD6623006C0AB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D49E34BA1AFD6623006C0AB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D49E34CD1AFD667F006C0AB6 /* StreamTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -228,6 +338,11 @@
 			isa = PBXTargetDependency;
 			target = D49E348D1AFD64B7006C0AB6 /* Stream-Mac */;
 			targetProxy = D49E34A01AFD64B7006C0AB6 /* PBXContainerItemProxy */;
+		};
+		D49E34C11AFD6623006C0AB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D49E34B31AFD6623006C0AB6 /* Stream-iOS */;
+			targetProxy = D49E34C01AFD6623006C0AB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -382,6 +497,89 @@
 			};
 			name = Release;
 		};
+		D49E34C81AFD6623006C0AB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = Stream/Info.plist;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D49E34C91AFD6623006C0AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Stream/Info.plist;
+				INSTALL_PATH = "@rpath";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D49E34CB1AFD6623006C0AB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = StreamTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		D49E34CC1AFD6623006C0AB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = StreamTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -411,6 +609,22 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		D49E34C71AFD6623006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D49E34C81AFD6623006C0AB6 /* Debug */,
+				D49E34C91AFD6623006C0AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D49E34CA1AFD6623006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D49E34CB1AFD6623006C0AB6 /* Debug */,
+				D49E34CC1AFD6623006C0AB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
