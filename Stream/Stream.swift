@@ -136,6 +136,22 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 		return unspool(state).map { value, next in self.cons(value, self.unfoldRight(next, unspool)) } ?? nil
 	}
 
+	/// Unfolds a new `Stream` starting from the initial state `state` and producing pairs of new states and values with `unspool`.
+	///
+	/// Since this unfolds to the left, it produces an eager `Stream` and thus is unsuitable for infinite `Stream`s.
+	///
+	/// This is dual to `foldLeft`. Where `foldLeft` takes a right-associative combine function which takes the current value and the current accumulator and returns the next accumulator, `unfoldLeft` takes the current state and returns the current value and the next state.
+	public static func unfoldLeft<State>(state: State, _ unspool: State -> (State, T)?) -> Stream {
+		// An alternative implementation replaced the cons in `unfoldRight`’s definition with the concatenation of recurrence and the value. While quite elegant, it ended up being a third slower.
+		//
+		// This would be a recursive function definition, except that local functions are disallowed from recurring.
+		return fix { prepend in
+			{ state, stream in
+				unspool(state).map { next, value in prepend(next, self.cons(value, stream)) } ?? stream
+			}
+		} (state, nil)
+	}
+
 
 	// MARK: ArrayLiteralConvertible
 
