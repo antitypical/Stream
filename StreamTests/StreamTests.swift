@@ -151,6 +151,11 @@ class StreamTests: XCTestCase {
 		XCTAssertEqual(reduce(concatenated, "0", { $0 + toString($1) }), "0123456")
 	}
 
+	func testConcatenationOfInfiniteStreams() {
+		let concatenated = fibonacci ++ fibonacci
+		XCTAssertEqual(concatenated.first ?? -1, 1)
+	}
+
 	func testFoldLeft() {
 		XCTAssertEqual(Stream([1, 2, 3]).foldLeft("0", { $0 + toString($1) }), "0123")
 	}
