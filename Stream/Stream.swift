@@ -5,6 +5,11 @@ public enum Stream<T>: NilLiteralConvertible {
 
 	// MARK: Constructors
 
+	/// Initializes with a generating function.
+	public init(_ f: () -> T?) {
+		self = Stream.construct(f)()
+	}
+
 	/// Maps a generator of `T?` into a generator of `Stream`.
 	public static func construct(generate: () -> T?) -> () -> Stream {
 		return fix { recur in
