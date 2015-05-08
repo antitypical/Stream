@@ -55,6 +55,11 @@ public enum Stream<T>: NilLiteralConvertible {
 	}
 
 
+	/// The first element of the receiver, or `nil` if the receiver is the empty stream.
+	public var first: T? {
+		return uncons()?.0
+	}
+
 	// MARK: NilLiteralConvertible
 
 	/// Constructs a `Nil` `Stream`.
