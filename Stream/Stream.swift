@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// An iterable stream.
-public enum Stream<T>: NilLiteralConvertible {
+public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible {
 
 	// MARK: Constructors
 
@@ -69,6 +69,14 @@ public enum Stream<T>: NilLiteralConvertible {
 	public var isEmpty: Bool {
 		return uncons() == nil
 	}
+
+
+	// MARK: ArrayLiteralConvertible
+
+	public init(arrayLiteral elements: T...) {
+		self.init(elements)
+	}
+
 
 	// MARK: NilLiteralConvertible
 
