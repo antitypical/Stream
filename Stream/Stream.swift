@@ -94,6 +94,12 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible {
 	}
 
 
+	/// Returns a `Stream` produced by mapping the elements of the receiver with `f`.
+	public func map<U>(f: T -> U) -> Stream<U> {
+		return uncons().map { .cons(f($0), $1.value.map(f)) } ?? nil
+	}
+
+
 	// MARK: ArrayLiteralConvertible
 
 	public init(arrayLiteral elements: T...) {
