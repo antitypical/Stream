@@ -58,6 +58,7 @@
 				D49E348F1AFD64B7006C0AB6 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		D49E348F1AFD64B7006C0AB6 /* Products */ = {
 			isa = PBXGroup;
