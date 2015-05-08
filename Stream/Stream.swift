@@ -5,6 +5,11 @@ public enum Stream<T>: NilLiteralConvertible {
 
 	// MARK: Constructors
 
+	/// Constructs a `Stream` from `first` and its `@autoclosure`’d continuation.
+	public static func cons(first: T, @autoclosure(escaping) _ rest: () -> Stream) -> Stream {
+		return Cons(Box(first), Memo(unevaluated: rest))
+	}
+
 	/// Constructs a `Stream` from `first` and its `Memo`ized continuation.
 	public static func cons(first: T, _ rest: Memo<Stream>) -> Stream {
 		return Cons(Box(first), rest)
