@@ -123,6 +123,20 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible {
 }
 
 
+// MARK: Concatenation
+
+infix operator ++ {
+	associativity right
+	precedence 145
+}
+
+/// Produces the concatenation of `left` and `right`.
+public func ++ <T> (left: Stream<T>, right: Stream<T>) -> Stream<T> {
+	return left.uncons().map { first, rest in
+		.cons(first, Memo { rest.value ++ right })
+	} ?? right
+}
+
 
 // MARK: Equality.
 
