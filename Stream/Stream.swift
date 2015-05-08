@@ -105,6 +105,13 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 		return uncons().map { combine($0, $1.value.foldRight(seed, combine)) } ?? seed
 	}
 
+	/// Folds the receiver ending with a given `seed` using the right-associative function `combine`.
+	///
+	/// `combine` receives the accumulator as a lazily memoized value. Thus, `combine` may terminate the fold simply by not evaluating the memoized accumulator.
+	public func foldRight<Result>(seed: Result, _ combine: (T, Memo<Result>) -> Result) -> Result {
+		return uncons().map { combine($0, $1.map { $0.foldRight(seed, combine) }) } ?? seed
+	}
+
 
 	// MARK: ArrayLiteralConvertible
 
