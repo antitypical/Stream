@@ -1,4 +1,4 @@
-//  Copyright (c) 2014 Rob Rix. All rights reserved.
+//  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 /// An iterable stream.
 public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConvertible, Printable {
