@@ -82,6 +82,17 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible {
 		return uncons().map { .cons($0, $1.value.take(n - 1)) } ?? nil
 	}
 
+	/// Returns a `Stream` without the first `n` elements of `stream`.
+	///
+	/// If `n` <= 0, returns the receiver.
+	///
+	/// If `n` <= the length of the receiver, returns the empty `Stream`.
+	public func drop(n: Int) -> Stream {
+		if n <= 0 { return self }
+
+		return rest.drop(n - 1)
+	}
+
 
 	// MARK: ArrayLiteralConvertible
 
