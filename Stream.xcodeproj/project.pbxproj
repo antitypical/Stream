@@ -26,7 +26,7 @@
 		D49E348E1AFD64B7006C0AB6 /* Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34921AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34931AFD64B7006C0AB6 /* Stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
-		D49E349E1AFD64B7006C0AB6 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stream-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34A41AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,7 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				D49E348E1AFD64B7006C0AB6 /* Stream.framework */,
-				D49E349E1AFD64B7006C0AB6 /* StreamTests.xctest */,
+				D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -117,9 +117,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		D49E348D1AFD64B7006C0AB6 /* Stream */ = {
+		D49E348D1AFD64B7006C0AB6 /* Stream-Mac */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D49E34A91AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream" */;
+			buildConfigurationList = D49E34A91AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-Mac" */;
 			buildPhases = (
 				D49E34891AFD64B7006C0AB6 /* Sources */,
 				D49E348A1AFD64B7006C0AB6 /* Frameworks */,
@@ -130,14 +130,14 @@
 			);
 			dependencies = (
 			);
-			name = Stream;
+			name = "Stream-Mac";
 			productName = Stream;
 			productReference = D49E348E1AFD64B7006C0AB6 /* Stream.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		D49E349D1AFD64B7006C0AB6 /* StreamTests */ = {
+		D49E349D1AFD64B7006C0AB6 /* Stream-MacTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D49E34AC1AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "StreamTests" */;
+			buildConfigurationList = D49E34AC1AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-MacTests" */;
 			buildPhases = (
 				D49E349A1AFD64B7006C0AB6 /* Sources */,
 				D49E349B1AFD64B7006C0AB6 /* Frameworks */,
@@ -148,9 +148,9 @@
 			dependencies = (
 				D49E34A11AFD64B7006C0AB6 /* PBXTargetDependency */,
 			);
-			name = StreamTests;
+			name = "Stream-MacTests";
 			productName = StreamTests;
-			productReference = D49E349E1AFD64B7006C0AB6 /* StreamTests.xctest */;
+			productReference = D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -182,8 +182,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				D49E348D1AFD64B7006C0AB6 /* Stream */,
-				D49E349D1AFD64B7006C0AB6 /* StreamTests */,
+				D49E348D1AFD64B7006C0AB6 /* Stream-Mac */,
+				D49E349D1AFD64B7006C0AB6 /* Stream-MacTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,7 +226,7 @@
 /* Begin PBXTargetDependency section */
 		D49E34A11AFD64B7006C0AB6 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D49E348D1AFD64B7006C0AB6 /* Stream */;
+			target = D49E348D1AFD64B7006C0AB6 /* Stream-Mac */;
 			targetProxy = D49E34A01AFD64B7006C0AB6 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -328,7 +328,7 @@
 				INFOPLIST_FILE = Stream/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stream;
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -345,7 +345,7 @@
 				INFOPLIST_FILE = Stream/Info.plist;
 				INSTALL_PATH = "@rpath";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stream;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -394,7 +394,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D49E34A91AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream" */ = {
+		D49E34A91AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-Mac" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D49E34AA1AFD64B7006C0AB6 /* Debug */,
@@ -403,7 +403,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D49E34AC1AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "StreamTests" */ = {
+		D49E34AC1AFD64B7006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-MacTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				D49E34AD1AFD64B7006C0AB6 /* Debug */,
