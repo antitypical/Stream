@@ -4,3 +4,4 @@ xcuserdata
 *.xccheckout
 *.mode*
 *.pbxuser
+Carthage/Build
