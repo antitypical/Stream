@@ -1,0 +1,3 @@
+github "robrix/Either" ~> 1.2
+github "robrix/Memo" ~> 1.1
+
