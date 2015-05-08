@@ -5,6 +5,13 @@ public enum Stream<T>: NilLiteralConvertible {
 
 	// MARK: Constructors
 
+	/// Maps a generator of `T?` into a generator of `Stream`.
+	public static func construct(generate: () -> T?) -> () -> Stream {
+		return fix { recur in
+			{ generate().map { self.cons($0, recur()) } ?? nil }
+		}
+	}
+
 	/// Constructs a `Stream` from `first` and its `@autoclosure`’d continuation.
 	public static func cons(first: T, @autoclosure(escaping) _ rest: () -> Stream) -> Stream {
 		return Cons(Box(first), Memo(unevaluated: rest))
@@ -60,3 +67,4 @@ public enum Stream<T>: NilLiteralConvertible {
 
 import Box
 import Memo
+import Prelude
