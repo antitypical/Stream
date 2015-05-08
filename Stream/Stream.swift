@@ -101,6 +101,11 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 
 	/// Folds the receiver starting from a given `seed` using the left-associative function `combine`.
+	public func foldLeft<Result>(seed: Result, _ combine: (Result, T) -> Result) -> Result {
+		return foldLeft(seed, combine >>> Either.right)
+	}
+
+	/// Folds the receiver starting from a given `seed` using the left-associative function `combine`.
 	///
 	/// `combine` should return `.Left(x)` to terminate the fold with `x`, or `.Right(x)` to continue the fold.
 	public func foldLeft<Result>(seed: Result, _ combine: (Result, T) -> Either<Result, Result>) -> Result {
