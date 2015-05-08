@@ -16,6 +16,21 @@ public enum Stream<T>: NilLiteralConvertible {
 	}
 
 
+	// MARK: Destructors
+
+	/// Unpacks the receiver into an optional tuple of its first element and the memoized remainder.
+	///
+	/// Returns `nil` if the receiver is the empty stream.
+	public func uncons() -> (T, Memo<Stream>)? {
+		switch self {
+		case let Cons(x, rest):
+			return (x.value, rest)
+		case Nil:
+			return nil
+		}
+	}
+
+
 	// MARK: NilLiteralConvertible
 
 	/// Constructs a `Nil` `Stream`.
