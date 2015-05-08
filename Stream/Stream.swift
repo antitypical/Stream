@@ -1,7 +1,7 @@
 //  Copyright (c) 2014 Rob Rix. All rights reserved.
 
 /// An iterable stream.
-public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible, Printable {
+public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConvertible, Printable {
 
 	// MARK: Constructors
 
@@ -107,6 +107,21 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible, Printable
 	}
 
 
+	// MARK: CollectionType
+
+	public var startIndex: StreamIndex<T> {
+		return StreamIndex(stream: self, index: isEmpty ? -1 : 0)
+	}
+
+	public var endIndex: StreamIndex<T> {
+		return StreamIndex(stream: nil, index: -1)
+	}
+
+	public subscript (index: StreamIndex<T>) -> T {
+		return index.stream.first!
+	}
+
+
 	// MARK: NilLiteralConvertible
 
 	/// Constructs a `Nil` `Stream`.
@@ -131,6 +146,13 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible, Printable
 	}
 
 
+	// MARK: SequenceType
+
+	public func generate() -> IndexingGenerator<Stream> {
+		return IndexingGenerator(self)
+	}
+
+
 	// MARK: Cases
 
 	/// A `Stream` of a `T` and the lazily memoized rest of the `Stream`.
@@ -142,6 +164,22 @@ public enum Stream<T>: ArrayLiteralConvertible, NilLiteralConvertible, Printable
 	///
 	/// Avoid using this directly; instead, use `nil`: `Stream` conforms to `NilLiteralConvertible`, and `nil` has better properties with respect to type inferencing.
 	case Nil
+}
+
+public struct StreamIndex<T>: ForwardIndexType {
+	let stream: Stream<T>
+	let index: Int
+
+
+	// MARK: ForwardIndexType
+
+	public func successor() -> StreamIndex {
+		return StreamIndex(stream: stream.rest, index: stream.rest.isEmpty ? -1 : index + 1)
+	}
+}
+
+public func == <T> (left: StreamIndex<T>, right: StreamIndex<T>) -> Bool {
+	return left.index == right.index
 }
 
 
