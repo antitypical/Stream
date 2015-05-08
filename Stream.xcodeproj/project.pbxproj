@@ -653,6 +653,7 @@
 				D49E34C91AFD6623006C0AB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D49E34CA1AFD6623006C0AB6 /* Build configuration list for PBXNativeTarget "Stream-iOSTests" */ = {
 			isa = XCConfigurationList;
@@ -661,6 +662,7 @@
 				D49E34CC1AFD6623006C0AB6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
