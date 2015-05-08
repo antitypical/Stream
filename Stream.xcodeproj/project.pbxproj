@@ -10,7 +10,7 @@
 		D49E34941AFD64B7006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D49E349F1AFD64B7006C0AB6 /* Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E348E1AFD64B7006C0AB6 /* Stream.framework */; };
 		D49E34A61AFD64B7006C0AB6 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */; };
-		D49E34BF1AFD6623006C0AB6 /* Stream-iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */; };
+		D49E34BF1AFD6623006C0AB6 /* Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34B41AFD6623006C0AB6 /* Stream.framework */; };
 		D49E34CD1AFD667F006C0AB6 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */; };
 		D49E34CE1AFD6685006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -39,7 +39,7 @@
 		D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stream-MacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34A41AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
-		D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = "Stream-iOS.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49E34B41AFD6623006C0AB6 /* Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D49E34BF1AFD6623006C0AB6 /* Stream-iOS.framework in Frameworks */,
+				D49E34BF1AFD6623006C0AB6 /* Stream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -92,7 +92,7 @@
 			children = (
 				D49E348E1AFD64B7006C0AB6 /* Stream.framework */,
 				D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */,
-				D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */,
+				D49E34B41AFD6623006C0AB6 /* Stream.framework */,
 				D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */,
 			);
 			name = Products;
@@ -205,7 +205,7 @@
 			);
 			name = "Stream-iOS";
 			productName = Stream;
-			productReference = D49E34B41AFD6623006C0AB6 /* Stream-iOS.framework */;
+			productReference = D49E34B41AFD6623006C0AB6 /* Stream.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		D49E34BD1AFD6623006C0AB6 /* Stream-iOSTests */ = {
@@ -514,7 +514,7 @@
 				INSTALL_PATH = "@rpath";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stream;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -533,7 +533,7 @@
 				INSTALL_PATH = "@rpath";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Stream;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
