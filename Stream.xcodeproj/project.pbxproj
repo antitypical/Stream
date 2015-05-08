@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D49E34941AFD64B7006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D49E34961AFD64B7006C0AB6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = D49E34951AFD64B7006C0AB6 /* .gitignore */; };
-		D49E34991AFD64B7006C0AB6 /* Stream.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = D49E34981AFD64B7006C0AB6 /* Stream.xcworkspace */; };
 		D49E349F1AFD64B7006C0AB6 /* Stream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E348E1AFD64B7006C0AB6 /* Stream.framework */; };
 		D49E34A61AFD64B7006C0AB6 /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */; };
 /* End PBXBuildFile section */
@@ -28,9 +26,6 @@
 		D49E348E1AFD64B7006C0AB6 /* Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34921AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34931AFD64B7006C0AB6 /* Stream.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Stream.h; sourceTree = "<group>"; };
-		D49E34951AFD64B7006C0AB6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; name = .gitignore; path = ../.gitignore; sourceTree = "<group>"; };
-		D49E34971AFD64B7006C0AB6 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		D49E34981AFD64B7006C0AB6 /* Stream.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = Stream.xcworkspace; sourceTree = SOURCE_ROOT; };
 		D49E349E1AFD64B7006C0AB6 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34A41AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
@@ -77,9 +72,6 @@
 			isa = PBXGroup;
 			children = (
 				D49E34931AFD64B7006C0AB6 /* Stream.h */,
-				D49E34951AFD64B7006C0AB6 /* .gitignore */,
-				D49E34971AFD64B7006C0AB6 /* LICENSE */,
-				D49E34981AFD64B7006C0AB6 /* Stream.xcworkspace */,
 				D49E34911AFD64B7006C0AB6 /* Supporting Files */,
 			);
 			path = Stream;
@@ -200,8 +192,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D49E34991AFD64B7006C0AB6 /* Stream.xcworkspace in Resources */,
-				D49E34961AFD64B7006C0AB6 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
