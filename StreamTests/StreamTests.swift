@@ -94,7 +94,7 @@ class StreamTests: XCTestCase {
 
 	let fibonacci: Stream<Int> = fix { fib in
 		{ x, y in Stream.cons(x + y, fib(y, x + y)) }
-		}(0, 1)
+	}(0, 1)
 
 	func testTake() {
 		let stream = fibonacci.take(3)
