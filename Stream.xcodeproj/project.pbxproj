@@ -50,7 +50,7 @@
 		D49E34A41AFD64B7006C0AB6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49E34A51AFD64B7006C0AB6 /* StreamTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamTests.swift; sourceTree = "<group>"; };
 		D49E34B41AFD6623006C0AB6 /* Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = StreamTests.xctest; path = "Stream-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D49E34BE1AFD6623006C0AB6 /* Stream-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stream-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34CF1AFD66FF006C0AB6 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
 		D49E34D21AFD6864006C0AB6 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Box.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34D31AFD6864006C0AB6 /* Either.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Either.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -116,7 +116,7 @@
 				D49E348E1AFD64B7006C0AB6 /* Stream.framework */,
 				D49E349E1AFD64B7006C0AB6 /* Stream-MacTests.xctest */,
 				D49E34B41AFD6623006C0AB6 /* Stream.framework */,
-				D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */,
+				D49E34BE1AFD6623006C0AB6 /* Stream-iOSTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -251,7 +251,7 @@
 			);
 			name = "Stream-iOSTests";
 			productName = StreamTests;
-			productReference = D49E34BE1AFD6623006C0AB6 /* StreamTests.xctest */;
+			productReference = D49E34BE1AFD6623006C0AB6 /* Stream-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -479,6 +479,7 @@
 				PRODUCT_NAME = Stream;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = x86_64;
 			};
 			name = Debug;
 		};
@@ -499,6 +500,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_NAME = Stream;
 				SKIP_INSTALL = YES;
+				VALID_ARCHS = x86_64;
 			};
 			name = Release;
 		};
