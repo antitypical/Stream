@@ -1,7 +1,7 @@
 //  Copyright (c) 2015 Rob Rix. All rights reserved.
 
 /// An iterable stream.
-public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConvertible, Printable {
+public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConvertible, CustomStringConvertible {
 
 	// MARK: Constructors
 
@@ -189,13 +189,13 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 		let describe: Stream -> [String] = fix { internalDescription in {
 				switch $0 {
 				case let Cons(x, rest):
-					return [toString(x.value)] + internalDescription(rest.value)
+					return [String(x)] + internalDescription(rest.value)
 				default:
 					return []
 				}
 			}
 		}
-		return "(" + join(" ", describe(self)) + ")"
+		return "(" + describe(self).joinWithSeparator(" ") + ")"
 	}
 
 

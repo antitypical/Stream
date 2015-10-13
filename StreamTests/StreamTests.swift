@@ -12,7 +12,7 @@ class StreamTests: XCTestCase {
 		XCTAssertEqual(stream.rest.rest.rest.first ?? -1, 4)
 
 		var n = 0
-		for (a, b) in Zip2(stream, seq) {
+		for (a, b) in Zip2Sequence(stream, seq) {
 			n++
 			XCTAssertEqual(a, b)
 			XCTAssertEqual(n, a)
@@ -23,14 +23,12 @@ class StreamTests: XCTestCase {
 
 	func testEffectfulStreams() {
 		var effects = 0
-		let seq = SequenceOf<Int> {
-			GeneratorOf {
-				if effects < 5 {
-					effects++
-					return effects
-				}
-				return nil
+		let seq: AnyGenerator<Int> = anyGenerator {
+			if effects < 5 {
+				effects++
+				return effects
 			}
+			return nil
 		}
 
 		XCTAssertEqual(effects, 0)
@@ -44,7 +42,7 @@ class StreamTests: XCTestCase {
 		let _ = stream.rest.first
 		XCTAssertEqual(effects, 2)
 
-		for each in stream {}
+		for _ in stream {}
 		XCTAssertEqual(effects, 5)
 
 		XCTAssertEqual(stream.first ?? -1, 1)
@@ -54,12 +52,12 @@ class StreamTests: XCTestCase {
 	}
 
 	func testStreamReduction() {
-		XCTAssertEqual(reduce(Stream([1, 2, 3, 4]), 0, +), 10)
+		XCTAssertEqual(Stream([1, 2, 3, 4]).reduce(0, combine: +), 10)
 	}
 
 	func testStreamReductionIsLeftReduce() {
-		XCTAssertEqual(reduce(Stream(["1", "2", "3"]), "0", +), "0123")
-		XCTAssertEqual(reduce(Stream.cons("1", Stream.cons("2", Stream.pure("3"))), "0", +), "0123")
+		XCTAssertEqual(Stream(["1", "2", "3"]).reduce("0", combine: +), "0123")
+		XCTAssertEqual(Stream.cons("1", Stream.cons("2", Stream.pure("3"))).reduce("0", combine: +), "0123")
 	}
 
 	func testConstructsNilFromGeneratorOfConstantNil() {
@@ -77,13 +75,13 @@ class StreamTests: XCTestCase {
 		var generator = seq.generate()
 		let stream = Stream { generator.next() }
 		XCTAssertEqual(Array(stream), seq)
-		XCTAssertEqual(reduce(stream, 0, +), 6)
-		XCTAssertEqual(reduce(map(stream, toString), "0", +), "0123")
+		XCTAssertEqual(stream.reduce(0, combine: +), 6)
+		XCTAssertEqual(stream.map(String.init).reduce("0", combine: +), "0123")
 	}
 
 	func testMapping() {
-		let mapped = map(Stream([1, 2, 3]), { $0 * 2 })
-		XCTAssertEqual(reduce(mapped, 0, +), 12)
+		let mapped = Stream([1, 2, 3]).map { $0 * 2 }
+		XCTAssertEqual(mapped.reduce(0, combine: +), 12)
 	}
 
 	func testCons() {
@@ -92,8 +90,8 @@ class StreamTests: XCTestCase {
 		XCTAssert(stream.rest == nil)
 	}
 
-	let fibonacci: Stream<Int> = fix { fib in
-		{ x, y in Stream.cons(x + y, fib(y, x + y)) }
+	let fibonacci: Stream<Int> = fix { (fib: (Int, Int) -> Stream<Int>) in
+		{ (x: Int, y: Int) -> Stream<Int> in Stream.cons(x + y, fib(y, x + y)) }
 	}(0, 1)
 
 	func testTake() {
@@ -148,7 +146,7 @@ class StreamTests: XCTestCase {
 
 	func testConcatenation() {
 		let concatenated = Stream([1, 2, 3]) ++ Stream([4, 5, 6])
-		XCTAssertEqual(reduce(concatenated, "0", { $0 + toString($1) }), "0123456")
+		XCTAssertEqual(concatenated.reduce("0") { ($0 ?? "") + String($1) }, "0123456")
 	}
 
 	func testConcatenationOfInfiniteStreams() {
@@ -157,23 +155,23 @@ class StreamTests: XCTestCase {
 	}
 
 	func testFoldLeft() {
-		XCTAssertEqual(Stream([1, 2, 3]).foldLeft("0", { $0 + toString($1) }), "0123")
+		XCTAssertEqual(Stream([1, 2, 3]).foldLeft("0", { $0 + String($1) }), "0123")
 	}
 
 	func testFoldLeftWithEarlyTermination() {
-		XCTAssertEqual(Stream([1, 2, 3]).foldLeft("0", { $0 + toString($1) } >>> Either.left), "01")
+		XCTAssertEqual(Stream([1, 2, 3]).foldLeft("0", { $0 + String($1) } >>> Either.left), "01")
 	}
 
 	func testFoldRight() {
-		XCTAssertEqual(Stream([1, 2, 3]).foldRight("4", { toString($0) + $1 }), "1234")
+		XCTAssertEqual(Stream([1, 2, 3]).foldRight("4", { String($0) + $1 }), "1234")
 	}
 
 	func testFoldRightWithEarlyTermination() {
-		XCTAssertEqual(Stream([1, 2, 3]).foldRight("4", { (each: Int, rest: Memo<String>) in toString(each) }), "1")
+		XCTAssertEqual(Stream([1, 2, 3]).foldRight("4", { (each: Int, rest: Memo<String>) in String(each) }), "1")
 	}
 
 	func testUnfoldRight() {
-		let fib = Stream.unfoldRight((0, 1)) { x, y in
+		let fib = Stream.unfoldRight((0, 1)) { (x: Int, y: Int) -> (Int, (Int, Int))? in
 			(x + y, (y, x + y))
 		}
 		XCTAssertEqual([Int]() + fib.take(5), [1, 2, 3, 5, 8])
