@@ -211,7 +211,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	/// A `Stream` of a `T` and the lazily memoized rest of the `Stream`.
 	///
 	/// Avoid using this directly; instead, use `Stream.cons()` or `Stream.pure()` to construct streams, and `stream.first`, `stream.rest`, and `stream.uncons` to deconstruct them: they don’t require you to `Box` or unbox, `Stream.cons()` comes in `@autoclosure` and `Memo` varieties, and `Stream.pure()`, `Stream.cons()`, and `stream.uncons` are all usable as first-class functions.
-	case Cons(T, Memo<Stream>)
+	indirect case Cons(T, Memo<Stream>)
 
 	/// The empty `Stream`.
 	///
