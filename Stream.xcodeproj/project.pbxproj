@@ -15,11 +15,9 @@
 		D49E34CE1AFD6685006C0AB6 /* Stream.h in Headers */ = {isa = PBXBuildFile; fileRef = D49E34931AFD64B7006C0AB6 /* Stream.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D49E34D01AFD66FF006C0AB6 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34CF1AFD66FF006C0AB6 /* Stream.swift */; };
 		D49E34D11AFD66FF006C0AB6 /* Stream.swift in Sources */ = {isa = PBXBuildFile; fileRef = D49E34CF1AFD66FF006C0AB6 /* Stream.swift */; };
-		D49E34D61AFD6864006C0AB6 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D21AFD6864006C0AB6 /* Box.framework */; };
 		D49E34D71AFD6864006C0AB6 /* Either.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D31AFD6864006C0AB6 /* Either.framework */; };
 		D49E34D81AFD6864006C0AB6 /* Memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D41AFD6864006C0AB6 /* Memo.framework */; };
 		D49E34D91AFD6864006C0AB6 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D51AFD6864006C0AB6 /* Prelude.framework */; };
-		D49E34DA1AFD6887006C0AB6 /* Box.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D21AFD6864006C0AB6 /* Box.framework */; };
 		D49E34DB1AFD6887006C0AB6 /* Either.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D31AFD6864006C0AB6 /* Either.framework */; };
 		D49E34DC1AFD6887006C0AB6 /* Memo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D41AFD6864006C0AB6 /* Memo.framework */; };
 		D49E34DD1AFD6887006C0AB6 /* Prelude.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D49E34D51AFD6864006C0AB6 /* Prelude.framework */; };
@@ -52,7 +50,6 @@
 		D49E34B41AFD6623006C0AB6 /* Stream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Stream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34BE1AFD6623006C0AB6 /* Stream-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Stream-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34CF1AFD66FF006C0AB6 /* Stream.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stream.swift; sourceTree = "<group>"; };
-		D49E34D21AFD6864006C0AB6 /* Box.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Box.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34D31AFD6864006C0AB6 /* Either.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Either.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34D41AFD6864006C0AB6 /* Memo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Memo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D49E34D51AFD6864006C0AB6 /* Prelude.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Prelude.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D49E34DA1AFD6887006C0AB6 /* Box.framework in Frameworks */,
 				D49E34DB1AFD6887006C0AB6 /* Either.framework in Frameworks */,
 				D49E34DC1AFD6887006C0AB6 /* Memo.framework in Frameworks */,
 				D49E34DD1AFD6887006C0AB6 /* Prelude.framework in Frameworks */,
@@ -82,7 +78,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D49E34D61AFD6864006C0AB6 /* Box.framework in Frameworks */,
 				D49E34D71AFD6864006C0AB6 /* Either.framework in Frameworks */,
 				D49E34D81AFD6864006C0AB6 /* Memo.framework in Frameworks */,
 				D49E34D91AFD6864006C0AB6 /* Prelude.framework in Frameworks */,
@@ -134,7 +129,6 @@
 		D49E34911AFD64B7006C0AB6 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				D49E34D21AFD6864006C0AB6 /* Box.framework */,
 				D49E34D31AFD6864006C0AB6 /* Either.framework */,
 				D49E34D41AFD6864006C0AB6 /* Memo.framework */,
 				D49E34D51AFD6864006C0AB6 /* Prelude.framework */,
