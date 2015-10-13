@@ -26,17 +26,17 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 
 	/// Constructs a `Stream` from `first` and its `@autoclosure`’d continuation.
 	public static func cons(first: T, @autoclosure(escaping) _ rest: () -> Stream) -> Stream {
-		return Cons(Box(first), Memo(unevaluated: rest))
+		return Cons(first, Memo(unevaluated: rest))
 	}
 
 	/// Constructs a `Stream` from `first` and its `Memo`ized continuation.
 	public static func cons(first: T, _ rest: Memo<Stream>) -> Stream {
-		return Cons(Box(first), rest)
+		return Cons(first, rest)
 	}
 
 	/// Constructs a unary `Stream` of `x`.
 	public static func pure(x: T) -> Stream {
-		return Cons(Box(x), Memo { nil })
+		return Cons(x, Memo { nil })
 	}
 
 
@@ -48,7 +48,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	public var uncons: (T, Memo<Stream>)? {
 		switch self {
 		case let Cons(x, rest):
-			return (x.value, rest)
+			return (x, rest)
 		case Nil:
 			return nil
 		}
@@ -211,7 +211,7 @@ public enum Stream<T>: ArrayLiteralConvertible, CollectionType, NilLiteralConver
 	/// A `Stream` of a `T` and the lazily memoized rest of the `Stream`.
 	///
 	/// Avoid using this directly; instead, use `Stream.cons()` or `Stream.pure()` to construct streams, and `stream.first`, `stream.rest`, and `stream.uncons` to deconstruct them: they don’t require you to `Box` or unbox, `Stream.cons()` comes in `@autoclosure` and `Memo` varieties, and `Stream.pure()`, `Stream.cons()`, and `stream.uncons` are all usable as first-class functions.
-	case Cons(Box<T>, Memo<Stream>)
+	case Cons(T, Memo<Stream>)
 
 	/// The empty `Stream`.
 	///
@@ -283,7 +283,6 @@ public func != <T: Equatable> (lhs: Stream<T>, rhs: Stream<T>) -> Bool {
 }
 
 
-import Box
 import Either
 import Memo
 import Prelude
