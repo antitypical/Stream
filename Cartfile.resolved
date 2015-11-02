@@ -1,4 +1,3 @@
-github "robrix/Box" "18d05a56845837eea90a36854c67de2520983bf8"
-github "robrix/Memo" "1.1"
-github "robrix/Prelude" "180e9ae5e60ec47abd8f3e0fa68cafbbbd160abe"
-github "robrix/Either" "1.2"
+github "robrix/Memo" "1.2"
+github "robrix/Prelude" "bd23a25d8c7c90a7a4b2505be65ad511c9d1db81"
+github "robrix/Either" "1.3.1"
